@@ -9,14 +9,15 @@ def post_list(request):
     
     print type(post_list)
     print post_list
+#	response = 
     
-    return HttpResponse('This should be a list of posts!')
+    return post_list
 
 def post_detail(request, id, showComments=False):
     pass
     
 def post_search(request, term):
-    pass
+    return HttpResponse()
 
 def home(request):
     print 'it works'
