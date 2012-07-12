@@ -12,13 +12,16 @@ class Post(models.Model):
 		
 	def __unicode__(self):
 		return self.title
+		
+def title_first_60(self):
+	return title[:60]
 
 class Comment(models.Model):
 	body = models.TextField()
 	author = models.CharField(max_length=60)
 	created = models.DateField(auto_now = True, auto_now_add = True)
 	updated = models.DateField(auto_now = True, auto_now_add = True)
-	post = models.ForeignKey(Post)
+	post = models.ForeignKey(Post, related_name='comments')
 	list_display = ('title_first_60')
 	
 	def __unicode__(self):

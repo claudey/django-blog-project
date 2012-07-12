@@ -1,3 +1,4 @@
+{% extends blog/base.html %}
 
 <!--
 you still need to add the code 
@@ -15,19 +16,9 @@ the code that makes the given code override the content block
 	</h2>
 	
 	<ul>
-		<li>
-			Created: {{ post.created }}
-		</li>
-		
-		<li>
-			Last updated: {{ post.updated }}
-		</li>
-		
-		<li>
-			{{ post.title_first_60 }} <!-- replace body_first_60 with whatever you called your
-                                          method to get the first 60 characters of the body!-->
-		</li>
-		
+		<li>Created: {{ post.created }}</li>
+		<li>Last updated: {{ post.updated }}</li>
+		<li>{{ post.title_first_60 }}</li>	
 	</ul>
 	
 {% endfor %}

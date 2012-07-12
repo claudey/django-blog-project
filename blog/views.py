@@ -1,23 +1,33 @@
 from django.template import Context, loader
 from django.http import HttpResponse
-
-from models import Post, Comment 
-
+from models import Post, Comment
 
 def post_list(request):
-    post_list = Post.objects.all()
-    
-    print type(post_list)
-    print post_list
-#	response = 
-    
-    return post_list
+	allPosts = Post.objects.all()
+	myhtml = ''
+	for pst in allPosts:
+		myhtml += '<ul>'+str(pst)+'</ul>'
+	return HttpResponse(myhtml)
+
 
 def post_detail(request, id, showComments=False):
-    pass
+	onePost = Post.objects.get(pk=id)
+	oneComment = onePost.comments.all()
+	eachComment = ''
+#	thishtml = str(onePost) + str(onePost.body)
+	thishtml = onePost
+	for x in oneComment:
+		eachComment += x.body
+	return HttpResponse(thishtml, eachComment)	
+
     
 def post_search(request, term):
-    return HttpResponse()
+	termRetrieve = Post.objects.filter(body__contains = term)
+	html = ''
+	for a in termRetrieve:
+		html += '<ul>'+str(a)+'</ul>'
+	return HttpResponse(html)
+#	return HttpResponse(html)
 
 def home(request):
     print 'it works'

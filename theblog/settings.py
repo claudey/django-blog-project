@@ -1,4 +1,5 @@
 # Django settings for theblog project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -108,11 +109,14 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'theblog.urls'
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'theblog.wsgi.application'
 
 TEMPLATE_DIRS = (
+	os.path.join(SITE_ROOT, 'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -161,3 +165,5 @@ LOGGING = {
         },
     }
 }
+
+#BELOW ARE LINES I ADDED FROM THE LAB
