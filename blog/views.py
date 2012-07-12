@@ -15,10 +15,10 @@ def post_detail(request, id, showComments=False):
 	oneComment = onePost.comments.all()
 	eachComment = ''
 #	thishtml = str(onePost) + str(onePost.body)
-	thishtml = onePost
+#	thishtml = onePost
 	for x in oneComment:
-		eachComment += x.body
-	return HttpResponse(thishtml, eachComment)	
+		eachComment += '<ol>'+str(x.body)+'</ol>'
+	return HttpResponse('Post: <br/> <ul>'+str(onePost)+'</ul> <br/>Comments: '+eachComment)
 
     
 def post_search(request, term):
