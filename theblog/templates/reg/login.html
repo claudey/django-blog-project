@@ -1,0 +1,9 @@
+<link href="blog/assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+{% extends "blog/base.html" %}
+
+{% block content %}
+  <form action="." method="post">
+     {{ form.as_p }}
+     <input type="submit" value="Submit" value="Login!" />
+  </form>
+{% endblock %}

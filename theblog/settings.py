@@ -104,13 +104,14 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+	#'instructors.tools.RawResponseMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'theblog.urls'
-SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'theblog.wsgi.application'
